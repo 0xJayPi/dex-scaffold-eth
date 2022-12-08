@@ -266,7 +266,7 @@ function App(props) {
   console.log("➕ LiquidityProvidedEvents:", LiquidityProvidedEvents);
   const LiquidityRemovedEvents = useEventListener(readContracts, "DEX", "LiquidityRemoved",localProvider, 1);
   console.log("➖ LiquidityRemovedEvents:", LiquidityRemovedEvents);
-  const ApprovedEvents = useEventListener(readContracts, "Ballons", "Approved",localProvider, 1);
+  const ApprovedEvents = useEventListener(readContracts, "Balloons", "Approved",localProvider, 1);
   console.log(" ApprovedEvents:", ApprovedEvents);
 
 
@@ -382,7 +382,7 @@ function App(props) {
 
           <Events
             contracts={readContracts}
-            contractName="Ballons"
+            contractName="Balloons"
             eventName="Approved"
             localProvider={localProvider}
             mainnetProvider={mainnetProvider}
