@@ -38,7 +38,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
 
   // paste in your front-end address here to get 10 balloons on deploy:
   await balloons.transfer(
-    "0x7433D81d1c86cb8bF74358ecbe9b0ed16Fd0b17C",
+    "0x9606e11178a83C364108e99fFFD2f7F75C99d801",
     "" + 10 * 10 ** 18
   );
 
@@ -49,7 +49,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   await balloons.approve(dex.address, ethers.utils.parseEther("100"));
   console.log("INIT exchange...");
   await dex.init(ethers.utils.parseEther("5"), {
-    value: ethers.utils.parseEther("5"),
+    value: ethers.utils.parseEther("0.001"),
     gasLimit: 200000,
   });
 };

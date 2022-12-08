@@ -107,8 +107,8 @@ contract DEX {
      * if you are using a mapping liquidity, then you can use `return liquidity[lp]` to get the liquidity for a user.
      *
      */
-    function getLiquidity() public view returns (uint256) {
-        return liquidity[msg.sender];
+    function getLiquidity(address lp) public view returns (uint256) {
+        return liquidity[lp];
     }
 
     /**
@@ -169,6 +169,8 @@ contract DEX {
      * NOTE: Equal parts of both assets will be removed from the user's wallet with respect to the price outlined by the AMM.
      */
     function deposit() public payable returns (uint256 tokensDeposited) {
+        require(msg.value > 0, "Value should be > 0!");
+
         uint256 ethReserve = address(this).balance.sub(msg.value);
         uint256 tokenReserver = token.balanceOf(address(this));
         uint256 tokensDeposit;
